@@ -2,7 +2,7 @@
 
 FROM node:latest as build
 
-WORKDIR /angular-docker
+WORKDIR /app
 
 COPY package*.json ./
 
@@ -18,6 +18,6 @@ FROM nginx:latest
 
 COPY ./nginx.conf  /etc/nginx/conf.d/default.conf
 
-COPY --from=build /angular-docker/dist/angular-docker/browser /usr/share/nginx/html
+COPY --from=build /app/dist/angular-docker/browser /usr/share/nginx/html
 
 EXPOSE 80
