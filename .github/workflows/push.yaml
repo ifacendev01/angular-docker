@@ -33,6 +33,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: firstbuffalo/angular:v1.0.3
+          tags: firstbuffalo/angular:v1.0.4
           #tags: ${{ steps.meta.outputs.tags }}
           #labels: ${{ steps.meta.outputs.labels }}
