@@ -42,4 +42,5 @@ jobs:
         with:
          config: ${{secrets.KUBE_CONFIG_DATA}}
          command: set image --record deployment/my-app container=${{ github.repository }}:v1.0.5
+         
       
