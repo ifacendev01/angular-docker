@@ -37,10 +37,9 @@ jobs:
           #tags: ${{ steps.meta.outputs.tags }}
           #labels: ${{ steps.meta.outputs.labels }}
 
-      - name: deploy to cluster
+      - name: Send to minikube
         uses: steebchen/kubectl@v2.0.0
-        with: # defaults to latest kubectl binary version
-        config: ${{ secrets.KUBE_CONFIG_DATA }}
-        command: set image --record deployment/my-app container=${{ github.repository }}:${{ github.sha }}
-      
+        with:
+         config: ${{secrets.KUBE_CONFIG_DATA}}
+         command: set image --record deployment/my-app container=${{ github.repository }}:v1.0.5
       
