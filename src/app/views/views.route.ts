@@ -80,4 +80,5 @@ export const VIEW_ROUTES: Route[] = [
     path: 'maps',
     loadChildren: () => import('./map/map.route').then((mod) => mod.MAPS_ROUTE),
   },
+  
 ]

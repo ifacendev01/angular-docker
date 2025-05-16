@@ -3,6 +3,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { PrivateLayoutComponent } from './layouts/private-layout/private-layout.component'
 import { AuthenticationService } from './core/services/auth.service'
 import { inject } from '@angular/core'
+import { PublicLayoutComponent } from './layouts/public-layout/public-layout.component'
 
 export const routes: Routes = [
   {
@@ -24,6 +25,17 @@ export const routes: Routes = [
     ],
     loadChildren: () =>
       import('./views/views.route').then((mod) => mod.VIEW_ROUTES),
+  },
+  {
+    path: 'reporte',
+    component: PublicLayoutComponent,
+    canActivate: [
+      () => {
+        return true
+      }, 
+    ],
+    loadChildren: () =>
+      import('./views/reports/reports.route').then((mod) => mod.REPORTS_ROUTES),
   },
   {
     path: '',
