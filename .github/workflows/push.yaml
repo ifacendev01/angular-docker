@@ -33,7 +33,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: firstbuffalo/angular:v1.0.7.12
+          tags: firstbuffalo/angular:v1.0.7.13
           #tags: ${{ steps.meta.outputs.tags }}
           #labels: ${{ steps.meta.outputs.labels }}
 
@@ -48,7 +48,7 @@ jobs:
         uses: steebchen/kubectl@v2.1.1
         with:
          config: ${{secrets.KUBE_CONFIG_DATA}}
-         command: set image --record deployment/my-app container=${{ github.repository }}:v1.0.7.12
+         command: set image --record deployment/my-app container=${{ github.repository }}:v1.0.7.13
 
 
       
