@@ -33,7 +33,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: firstbuffalo/angular:v1.0.7.14
+          tags: firstbuffalo/angular:v1.0.7.45
           #tags: ${{ steps.meta.outputs.tags }}
           #labels: ${{ steps.meta.outputs.labels }}
 
@@ -44,14 +44,14 @@ jobs:
         run: |
          echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > ~/.kube/config
 
-      - name: Esperar 20 segundos
-        run: sleep 20
+      - name: Esperar 45 segundos
+        run: sleep 45
 
       - name: Send to minikube
         uses: steebchen/kubectl@v2.1.1
         with:
          config: ${{secrets.KUBE_CONFIG_DATA}}
-         command: set image --record deployment/my-app container=${{ github.repository }}:v1.0.7.14
+         command: set image --record deployment/my-app container=${{ github.repository }}:v1.0.7.15
 
 
       
