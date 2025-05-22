@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-between align-items-center">
+    <h4 class="card-title">{{mesActual}}</h4>
+    <div>
+      <button type="button" [ngClass]="getClassesByType('GRAF1_365')" (click)="reloadfilterByDate('365')">
+        1AÑO
+      </button>
+      <button type="button" [ngClass]="getClassesByType('GRAF1_30')" (click)="reloadfilterByDate('30')">
+        30DIAS
+      </button>
+      <button type="button" [ngClass]="getClassesByType('GRAF1_15')" (click)="reloadfilterByDate('15')">
+        15DIAS
+      </button>
+      <button type="button" [ngClass]="getClassesByType('GRAF1_7')" (click)="reloadfilterByDate('7')">
+        7DIAS
+      </button>
+    </div>
+  </div>
+<br/>
+  <div dir="ltr">
+    <button class="btn btn-sm btn-outline-light active" style="float: right;" (click)="generarPDFMedicamentos()">Descargar medicamentos</button>
+    <br/>
+    <div class="table-responsive margin-table-top" #pdfMedicamentos id="pdfMedicamentos">
+          <table class="table table-hover table-centered">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Días</th>
+                <th scope="col">Horas</th>
+                <th scope="col">minutos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let medicamento of reportDataMedicamentos.data; let i = index">
+                <td>{{medicamento.nombre}}</td>
+                <td>{{medicamento.cantidad}}</td>
+                <td>{{medicamento.dias}}</td>
+                <td>{{medicamento.horas}}</td>
+                <td>{{medicamento.minutos}}</td>
+              </tr>              
+            </tbody>
+          </table>
+        </div>
+  </div>
+  <br/>
+  <div dir="ltr">
+    <button class="btn btn-sm btn-outline-light active" style="float: right;" (click)="generarPDFComentarios()">Descargar comentarios</button>
+    <br/>
+    <div class="table-responsive margin-table-top" #pdfComentarios id="pdfComentarios">
+          <table class="table table-hover table-centered">
+            <thead>
+              <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Comentario</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let medicamento of reportDataMedicamentosCom.data; let i = index">
+                <td>{{medicamento.fecha  | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                <td>{{medicamento.comentario}}</td>                
+              </tr>              
+            </tbody>
+          </table>
+        </div>
+  </div>
+<div class="spinner-overlay" *ngIf="loading">
+  <div class="spinner"></div>
+</div>

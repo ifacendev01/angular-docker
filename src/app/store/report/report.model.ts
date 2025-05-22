@@ -6,6 +6,7 @@ export type ReportItem = {
     fecha:Date;
     valor:number;
     dia:number;
+    color:string;
 }
 export type ReportData = {
     data: ReportItem[];
@@ -18,4 +19,18 @@ export type ReportChart = {
 export type SeriesReport = {
     name:string;
     data:number[];    
+}
+
+export type ReportDataMedicamentosItem = {
+    nombre:string;
+    cantidad:string;
+    dias:string;
+    horas:number;
+    minutos:number;
+    comentario:string;
+    notificacion:string;
+    fecha:Date;
+}
+export type ReportDataMedicamentos = {
+    data: ReportDataMedicamentosItem[];
 }

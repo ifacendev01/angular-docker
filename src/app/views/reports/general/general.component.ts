@@ -137,7 +137,7 @@ export class GeneralComponent {
                     return encontrado ? encontrado.valor : 0;
                 });
                 const serieValida: ApexAxisChartSeries[number] = {
-                name: 'Carne',
+                name: claveSerie,
                 data: resultado
                 };
                 (reportData.config.series as ApexAxisChartSeries).push(serieValida);
